@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign Up - StudyNest</title>
+    <link rel="stylesheet" href="/css/phase02styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Student Registration</h1>
+    <form th:action="@{/signup}" th:object="${student}" method="post">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" required>
+        <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+        <label>Roll No:</label>
+        <input type="text" th:field="*{rollNo}" required>
+        <div class="error" th:if="${#fields.hasErrors('rollNo')}" th:errors="*{rollNo}"></div>
+
+        <label>PRN:</label>
+        <input type="text" th:field="*{prn}" required>
+        <div class="error" th:if="${#fields.hasErrors('prn')}" th:errors="*{prn}"></div>
+
+        <label>Semester:</label>
+        <select th:field="*{semester}" required>
+            <option th:value="3">Semester 3</option>
+            <option th:value="4">Semester 4</option>
+            <option th:value="5">Semester 5</option>
+            <option th:value="6">Semester 6</option>
+            <option th:value="7">Semester 7</option>
+        </select>
+        <div class="error" th:if="${#fields.hasErrors('semester')}" th:errors="*{semester}"></div>
+
+        <label>Mobile:</label>
+        <input type="text" th:field="*{mobile}" required>
+        <div class="error" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></div>
+
+        <label>Password:</label>
+        <input type="password" th:field="*{password}" required id="passwordField" placeholder="Enter your password">
+        <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+        <!-- Show Password Button Below -->
+        <label>
+            <input type="checkbox" onclick="togglePassword()"> Show Password
+        </label>
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+
+<script>
+    function togglePassword() {
+        var passwordField = document.getElementById("passwordField");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+        } else {
+            passwordField.type = "password";
+        }
+    }
+</script>
+
+</body>
+</html>

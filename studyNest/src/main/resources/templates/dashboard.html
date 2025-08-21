@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard - StudyNest</title>
+    <link rel="stylesheet" href="/css/dashboardStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR: Fixed at the top -->
+<div sec:authorize="isAuthenticated()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">StudyNest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/welcome}">Welcome</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/dashboard}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/progress}">Progress</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Main Content -->
+<div class="container dashboard-container">
+    <h1>Welcome to Your Dashboard</h1>
+    <div class="semester-box">
+        <p>You are currently in Semester <b th:text="${semester}">1</b></p>
+    </div>
+
+    <div class="module-grid">
+        <div th:each="module : ${modules}" class="module-card">
+            <img th:src="${module.imageUrl}" alt="Module Image">
+            <a th:href="@{'/module/' + ${module.id}}" th:text="${module.name}">Module Name</a>
+        </div>
+    </div>
+
+    <div class="center-align">
+        <a href="/progress" class=" progress-btn">View Progress</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

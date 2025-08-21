@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test - StudyNest</title>
+    <link rel="stylesheet" href="/css/test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="'Test for ' + ${module.name}">Test for Module Name</h1>
+
+    <form th:action="@{/submitTest/{moduleId}(moduleId=${module.id})}" method="post">
+        <div th:each="question, iterStat : ${questions}">
+            <div class="question">
+                <label th:text="'Q' + ${iterStat.count} + '. ' + ${question.questionText}"></label>
+                <div class="options">
+                    <label>
+                        <input type="radio" th:name="'answers[' + ${question.id} + ']'" th:value="${question.option1}" required>
+                        <span th:text="${question.option1}">Option 1</span>
+                    </label>
+                    <label>
+                        <input type="radio" th:name="'answers[' + ${question.id} + ']'" th:value="${question.option2}">
+                        <span th:text="${question.option2}">Option 2</span>
+                    </label>
+                    <label>
+                        <input type="radio" th:name="'answers[' + ${question.id} + ']'" th:value="${question.option3}">
+                        <span th:text="${question.option3}">Option 3</span>
+                    </label>
+                    <label>
+                        <input type="radio" th:name="'answers[' + ${question.id} + ']'" th:value="${question.option4}">
+                        <span th:text="${question.option4}">Option 4</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit">Submit Test</button>
+    </form>
+
+    <!-- Modal for Result -->
+    <div id="resultModal" class="modal" th:if="${resultShown}" style="display:block;">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('resultModal').style.display='none'">&times;</span>
+            <div class="modal-header">
+                <h2>Test Result</h2>
+            </div>
+            <div class="modal-body">
+                <p th:text="'Your score is: ' + ${score}"></p>
+                <p th:text="'You have ' + (${passed} ? 'Passed' : 'Failed')"></p>
+
+                <div th:if="${passed}">
+                    <form th:action="@{/dashboard/{semester}(semester=${student.semester})}" method="get">
+                        <button type="submit" class="next-module-btn">Go to Next Module</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    background: linear-gradient(135deg, #d4c1f0, #f3e8ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.btn-primary {
+    background-color: #7e57c2;
+    border-color: #7e57c2;
+}
+
+.btn-primary:hover {
+    background-color: #673ab7;
+    border-color: #673ab7;
+}
+
+.btn-success {
+    background-color: #9575cd;
+    border-color: #9575cd;
+}
+
+.btn-success:hover {
+    background-color: #7e57c2;
+    border-color: #7e57c2;
+}
+
+p.text-muted {
+    font-size: 0.9rem;
+}
+
+input.form-control {
+    border-radius: 8px;
+}

@@ -1,0 +1,140 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    max-width: 850px;
+    text-align: center;
+}
+
+h1 {
+    color: #6a1b9a;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.progress-form {
+    margin-top: 30px;
+}
+
+.progress-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress-form label {
+    font-size: 1.1em;
+    color: #6a1b9a;
+}
+
+.progress-form input {
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: #7b1fa2;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.submit-btn:hover {
+    background-color: #4a148c;
+    transform: scale(1.05);
+}
+
+.certificate-btn {
+    background-color: #7b1fa2;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    margin-top: 30px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.certificate-btn:hover {
+    background-color: #4a148c;
+    transform: scale(1.05);
+}
+
+.certificate-btn[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.center-align {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+.chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    min-width: 180px;
+    height: 60px;
+    background: linear-gradient(135deg, #6c63ff, #7b1fa2);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.6);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+}
+
+.chatbot-button:hover {
+    background: linear-gradient(135deg, #5548c8, #4a148c);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .chatbot-button {
+        min-width: 140px;
+        height: 50px;
+        font-size: 14px;
+        padding: 0 15px;
+    }
+}
