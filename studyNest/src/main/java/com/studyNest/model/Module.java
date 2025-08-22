@@ -28,7 +28,7 @@ public class Module {
     private String externalLinks;
 
     @NotBlank(message = "Image URL is required")
-    private String imageUrl; // e.g. "/images/dsa.png"
+    private String imageUrl; 
 
     // --- Getters and Setters ---
 
