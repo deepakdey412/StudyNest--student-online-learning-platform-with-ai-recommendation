@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> 
 	</parent>
 	<groupId>com.studyNest</groupId>
 	<artifactId>studyNest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>studyNest</name>
-	<description>StudyNest Project</description>
+	<description>StudyNest - Student Learning Platform with Ai recommendation </description>
 	<url/>
 	<licenses>
 		<license/>
@@ -46,7 +46,7 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
 		</dependency>
-
+<!-- 		Devtool dependency is optional -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -85,11 +85,9 @@
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
-			<version>5.0.0</version> <!-- Update to match your Spring Boot version -->
+			<version>5.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
