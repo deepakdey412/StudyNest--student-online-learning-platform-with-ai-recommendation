@@ -5,8 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface StudentDetailsRepository extends JpaRepository<StudentDetails , Long> {
-
+public interface StudentRepository extends JpaRepository<StudentDetails, Long> {
     Optional<StudentDetails> findByEmail(String email);
-
 }
