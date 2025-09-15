@@ -16,9 +16,10 @@ public class StudentDetails {
     @Column(name = "student_name", nullable = false)
     private String studentName;
 
-    @NotBlank(message = "Semester is required")
+    @Min(value = 3, message = "Semester must be at least 3")
+    @Max(value = 7, message = "Semester must not exceed 7")
     @Column(name = "student_semester", nullable = false)
-    private String studentSemester;
+    private Integer studentSemester;
 
     @NotNull(message = "PRN is required")
     @Column(name = "student_prn", nullable = false, unique = true)
@@ -41,7 +42,8 @@ public class StudentDetails {
     public StudentDetails() {
     }
 
-    public StudentDetails(Long studentID, String studentName, String studentSemester, Integer studentPRN, String studentRollNo, String studentEmail, String studentPassword) {
+    public StudentDetails(Long studentID, String studentName, Integer studentSemester, Integer studentPRN,
+                          String studentRollNo, String studentEmail, String studentPassword) {
         this.studentID = studentID;
         this.studentName = studentName;
         this.studentSemester = studentSemester;
@@ -67,11 +69,11 @@ public class StudentDetails {
         this.studentName = studentName;
     }
 
-    public String getStudentSemester() {
+    public Integer getStudentSemester() {
         return studentSemester;
     }
 
-    public void setStudentSemester(String studentSemester) {
+    public void setStudentSemester(Integer studentSemester) {
         this.studentSemester = studentSemester;
     }
 
