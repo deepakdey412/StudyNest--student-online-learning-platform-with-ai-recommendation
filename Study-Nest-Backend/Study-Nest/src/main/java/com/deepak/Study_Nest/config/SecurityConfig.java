@@ -13,9 +13,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable() // for Postman testing
+                .csrf().disable() 
                 .authorizeHttpRequests()
-                .requestMatchers("/api/auth/**").permitAll() // allow auth endpoints
+                .requestMatchers("/api/auth/**").permitAll() 
                 .anyRequest().authenticated();
         return http.build();
     }
