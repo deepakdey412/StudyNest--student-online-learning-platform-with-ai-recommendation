@@ -190,6 +190,25 @@ const SuperAdminDashboard = ({ user, onLogout }) => {
           <div className="mb-4">
             <h2 className="mb-1">Super Admin Dashboard</h2>
             <p className="text-muted">Manage tutor approvals and registrations</p>
+            
+            {/* Testing Note */}
+            <div className="alert alert-info mt-3" style={{
+              backgroundColor: 'rgba(59, 130, 246, 0.1)',
+              borderLeft: '4px solid #3b82f6',
+              borderRadius: '8px',
+              padding: '12px 16px'
+            }}>
+              <div className="d-flex align-items-start">
+                <span style={{ fontSize: '1.2rem', marginRight: '10px' }}>ℹ️</span>
+                <div>
+                  <strong style={{ color: '#1e40af' }}>Testing Purpose Only</strong>
+                  <p className="mb-0 mt-1" style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+                    This admin account is provided for demonstration and testing purposes. 
+                    In production, admin credentials should be securely managed and not pre-filled.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {error && <Alert variant="danger" dismissible onClose={() => setError('')}>{error}</Alert>}

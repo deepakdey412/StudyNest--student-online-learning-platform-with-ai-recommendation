@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaEnvelope, FaLock, FaPhone, FaGraduationCap } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaLock, FaPhone } from 'react-icons/fa';
+import Logo from '../components/Logo';
 import authService from '../services/authService';
 import './AuthPages.css';
 
@@ -67,7 +68,9 @@ const TutorRegisterPage = ({ onLogin }) => {
             <Card className="shadow-lg border-0 auth-card">
               <Card.Body className="p-5">
                 <div className="text-center mb-4">
-                  <FaGraduationCap size={50} className="text-secondary mb-3" />
+                  <div className="d-flex justify-content-center mb-3">
+                    <Logo size="lg" />
+                  </div>
                   <h2 className="fw-bold">Tutor Registration</h2>
                   <p className="text-muted">Join as a tutor and manage modules</p>
                 </div>

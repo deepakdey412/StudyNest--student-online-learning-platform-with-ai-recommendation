@@ -21,8 +21,11 @@ const ModuleCard = ({ module, role, userSemester }) => {
   };
 
   return (
-    <Card className="module-card h-100 shadow-sm card-hover">
-      <Card.Body>
+    <Card className="module-card h-100 shadow-sm card-hover" style={{ 
+      backgroundColor: '#ffffff',
+      border: '1px solid #e5e7eb'
+    }}>
+      <Card.Body className="d-flex flex-column">
         <div className="d-flex justify-content-between align-items-start mb-3">
           <div>
             <Card.Title className="mb-2">{module.name}</Card.Title>
@@ -34,7 +37,18 @@ const ModuleCard = ({ module, role, userSemester }) => {
           <FaBook size={30} className="text-primary" />
         </div>
 
-        <Card.Text className="text-muted mb-3" style={{ minHeight: '60px' }}>
+        <Card.Text 
+          className="text-muted mb-3" 
+          style={{ 
+            minHeight: '80px',
+            maxHeight: '80px',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical'
+          }}
+        >
           {module.description || 'Complete module with study materials and practice tests.'}
         </Card.Text>
 
@@ -74,7 +88,7 @@ const ModuleCard = ({ module, role, userSemester }) => {
           )}
         </div>
 
-        <div className="d-grid gap-2">
+        <div className="d-grid gap-2 mt-auto">
           {role === 'STUDENT' && (
             <>
               <Button variant="primary" onClick={handleViewModule}>

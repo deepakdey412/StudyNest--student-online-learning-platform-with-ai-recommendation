@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Modal, Form, Alert, Badge, Nav } from 'react-bootstrap';
 import { FaPlus, FaEdit, FaTrash, FaBook, FaFilePdf, FaVideo, FaLink } from 'react-icons/fa';
 import Sidebar from '../../components/Sidebar';
@@ -7,6 +8,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import moduleService from '../../services/moduleService';
 
 const ModuleManagementPage = ({ user, onLogout }) => {
+  const navigate = useNavigate();
   const [modules, setModules] = useState([]);
   const [filteredModules, setFilteredModules] = useState([]);
   const [selectedSemester, setSelectedSemester] = useState('all');
@@ -184,11 +186,6 @@ const ModuleManagementPage = ({ user, onLogout }) => {
                   className="px-4"
                 >
                   {sem.label}
-                  {sem.value !== 'all' && (
-                    <span className="ms-2 badge bg-light text-dark">
-                      {modules.filter(m => m.semester === sem.value).length}
-                    </span>
-                  )}
                 </Nav.Link>
               </Nav.Item>
             ))}
@@ -255,6 +252,15 @@ const ModuleManagementPage = ({ user, onLogout }) => {
                             <FaBook className="me-2" /> {module.questionCount} Questions
                           </div>
                         </div>
+                        
+                        <Button 
+                          variant="outline-success" 
+                          size="sm" 
+                          className="w-100 mt-3"
+                          onClick={() => navigate(`/tutor/module/${module.id}`)}
+                        >
+                          <FaBook className="me-2" /> Manage Questions
+                        </Button>
                       </Card.Body>
                     </Card>
                   </Col>
@@ -341,20 +347,6 @@ const ModuleManagementPage = ({ user, onLogout }) => {
 
             <hr />
             <h6 className="mb-3">Learning Resources</h6>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Image URL</Form.Label>
-              <Form.Control
-                type="url"
-                name="imageUrl"
-                value={formData.imageUrl}
-                onChange={handleInputChange}
-                placeholder="https://example.com/image.jpg"
-              />
-              <Form.Text className="text-muted">
-                URL to module thumbnail image
-              </Form.Text>
-            </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>PDF URL</Form.Label>

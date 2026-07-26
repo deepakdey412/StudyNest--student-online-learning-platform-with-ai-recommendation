@@ -1,16 +1,18 @@
 package com.deepak.Study_Nest.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.deepak.Study_Nest.dao.QuestionRepository;
 import com.deepak.Study_Nest.dto.QuestionDto;
 import com.deepak.Study_Nest.entity.Question;
 import com.deepak.Study_Nest.exception.ResourceNotFoundException;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,6 +32,25 @@ public class QuestionService {
         return questions.stream()
                 .map(q -> convertToDto(q, includeAnswers))
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public QuestionDto updateQuestion(Long questionId, QuestionDto questionDto) {
+        Question question = questionRepository.findById(questionId)
+                .orElseThrow(() -> new ResourceNotFoundException("Question not found with id: " + questionId));
+
+        // Update question fields
+        question.setQuestionText(questionDto.getQuestionText());
+        question.setOption1(questionDto.getOption1());
+        question.setOption2(questionDto.getOption2());
+        question.setOption3(questionDto.getOption3());
+        question.setOption4(questionDto.getOption4());
+        question.setCorrectAnswer(questionDto.getCorrectAnswer());
+
+        Question savedQuestion = questionRepository.save(question);
+        log.info("Question updated: {}", savedQuestion.getId());
+
+        return convertToDto(savedQuestion, true);
     }
 
     private QuestionDto convertToDto(Question question, boolean includeAnswers) {

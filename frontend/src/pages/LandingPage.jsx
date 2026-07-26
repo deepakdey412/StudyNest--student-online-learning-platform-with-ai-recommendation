@@ -17,6 +17,7 @@ import {
   LogOut,
   User
 } from 'lucide-react';
+import Logo from '../components/Logo';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -219,7 +220,7 @@ const LandingPage = () => {
     },
     hero: {
       minHeight: '100vh',
-      backgroundImage: 'linear-gradient(135deg, rgba(124,58,237,0.82) 0%, rgba(59,130,246,0.65) 100%), url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=80)',
+      backgroundImage: 'linear-gradient(135deg, rgba(107, 76, 230, 0.92) 0%, rgba(139, 111, 246, 0.85) 100%), url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=80)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       display: 'flex',
@@ -234,7 +235,7 @@ const LandingPage = () => {
     },
     eyebrow: {
       display: 'inline-block',
-      backgroundColor: 'rgba(167, 139, 250, 0.3)',
+      backgroundColor: 'rgba(233, 213, 255, 0.25)',
       color: '#fff',
       padding: '0.5rem 1.5rem',
       borderRadius: '9999px',
@@ -464,7 +465,7 @@ const LandingPage = () => {
       <nav style={styles.navbar}>
         <div style={styles.navContainer}>
           <a href="#home" style={styles.logo} onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-            <Logo color={isScrolled ? '#0EA5E9' : '#fff'} />
+            <Logo size="sm" />
             <span>StudyNest</span>
           </a>
           

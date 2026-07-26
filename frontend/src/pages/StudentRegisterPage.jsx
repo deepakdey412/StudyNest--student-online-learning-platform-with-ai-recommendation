@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button, Alert, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUser, FaEnvelope, FaLock, FaPhone, FaIdCard, FaGraduationCap, FaEye, FaEyeSlash } from 'react-icons/fa';
+import Logo from '../components/Logo';
 import authService from '../services/authService';
 import './AuthPages.css';
 
@@ -47,7 +48,9 @@ const StudentRegisterPage = ({ onLogin }) => {
             <Card className="shadow-lg border-0 auth-card my-5">
               <Card.Body className="p-5">
                 <div className="text-center mb-4">
-                  <FaGraduationCap size={50} className="text-primary mb-3" />
+                  <div className="d-flex justify-content-center mb-3">
+                    <Logo size="lg" />
+                  </div>
                   <h2 className="fw-bold">Student Registration</h2>
                   <p className="text-muted">Create your account to start learning</p>
                 </div>
@@ -180,6 +183,7 @@ const StudentRegisterPage = ({ onLogin }) => {
 
                 <div className="text-center mt-3">
                   <p>Already have an account? <Link to="/login">Login here</Link></p>
+                  <p className="mt-2">Want to register as a tutor? <Link to="/register/tutor">Register as Tutor</Link></p>
                   <Link to="/" className="text-decoration-none">← Back to Home</Link>
                 </div>
               </Card.Body>

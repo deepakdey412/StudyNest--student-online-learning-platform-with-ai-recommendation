@@ -56,16 +56,6 @@ const Sidebar = ({ role, onLogout, user }) => {
 
   const links = role === 'STUDENT' ? studentLinks : role === 'SUPER_ADMIN' ? superAdminLinks : tutorLinks;
 
-  // Logo SVG Component
-  const Logo = ({ color = '#0EA5E9' }) => (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <path d="M16 4L8 10V18C8 22.4183 11.5817 26 16 26C20.4183 26 24 22.4183 24 18V10L16 4Z" fill={color} opacity="0.2"/>
-      <path d="M16 4L8 10V18C8 22.4183 11.5817 26 16 26C20.4183 26 24 22.4183 24 18V10L16 4Z" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M16 12L12 14.5V19C12 20.6569 13.3431 22 15 22H17C18.6569 22 20 20.6569 20 19V14.5L16 12Z" fill={color}/>
-      <circle cx="16" cy="8" r="2" fill="#7DD3FC"/>
-    </svg>
-  );
-
   const styles = {
     hamburger: {
       position: 'fixed',
@@ -143,9 +133,10 @@ const Sidebar = ({ role, onLogout, user }) => {
       cursor: 'pointer',
     },
     linkActive: {
-      backgroundColor: '#0EA5E9',
+      background: 'linear-gradient(135deg, #6B4CE6 0%, #8B6FF6 100%)',
       color: '#fff',
       fontWeight: 600,
+      boxShadow: '0 4px 15px rgba(107, 76, 230, 0.25)',
     },
     logoutSection: {
       padding: '1rem',
@@ -182,7 +173,6 @@ const Sidebar = ({ role, onLogout, user }) => {
       {/* Sidebar */}
       <div style={styles.sidebar}>
       <div style={styles.logoSection} onClick={() => navigate('/')}>
-        <Logo color="#0EA5E9" />
         <span style={styles.logoText}>StudyNest</span>
       </div>
       

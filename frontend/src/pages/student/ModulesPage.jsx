@@ -83,10 +83,6 @@ const ModulesPage = ({ user, onLogout }) => {
           {/* Semester Filter Tabs */}
           <Nav variant="pills" className="mb-4 semester-tabs">
             {semesters.map((sem) => {
-              const semesterModuleCount = sem.value === 'all' 
-                ? modules.length
-                : modules.filter(m => m.semester === sem.value).length;
-
               return (
                 <Nav.Item key={sem.value}>
                   <Nav.Link
@@ -95,9 +91,6 @@ const ModulesPage = ({ user, onLogout }) => {
                     className="px-4"
                   >
                     {sem.label}
-                    <span className="ms-2 badge bg-light text-dark">
-                      {semesterModuleCount}
-                    </span>
                   </Nav.Link>
                 </Nav.Item>
               );
@@ -107,13 +100,6 @@ const ModulesPage = ({ user, onLogout }) => {
           {/* Modules Grid */}
           {filteredModules.length > 0 ? (
             <>
-              <div className="mb-3">
-                <h5 className="text-muted">
-                  {selectedSemester === 'all' 
-                    ? `Showing all ${filteredModules.length} modules` 
-                    : `Semester ${selectedSemester} - ${filteredModules.length} modules`}
-                </h5>
-              </div>
               <Row className="g-4">
                 {filteredModules.map((module) => (
                   <Col key={module.id} md={6} lg={4}>

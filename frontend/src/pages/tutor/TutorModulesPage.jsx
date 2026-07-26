@@ -72,11 +72,6 @@ const TutorModulesPage = ({ user, onLogout }) => {
                   className="px-4"
                 >
                   {sem.label}
-                  {sem.value !== 'all' && (
-                    <span className="ms-2 badge bg-light text-dark">
-                      {modules.filter(m => m.semester === sem.value).length}
-                    </span>
-                  )}
                 </Nav.Link>
               </Nav.Item>
             ))}

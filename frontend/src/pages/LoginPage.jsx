@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button, Alert, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaEnvelope, FaLock, FaGraduationCap, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+import Logo from '../components/Logo';
 import authService from '../services/authService';
 import './AuthPages.css';
 
@@ -48,7 +49,9 @@ const LoginPage = ({ onLogin }) => {
             <Card className="shadow-lg border-0 auth-card">
               <Card.Body className="p-5">
                 <div className="text-center mb-4">
-                  <FaGraduationCap size={50} className="text-primary mb-3" />
+                  <div className="d-flex justify-content-center mb-3">
+                    <Logo size="lg" />
+                  </div>
                   <h2 className="fw-bold">Welcome Back!</h2>
                   <p className="text-muted">Login to continue learning</p>
                 </div>

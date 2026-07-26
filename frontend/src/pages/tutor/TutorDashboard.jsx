@@ -68,26 +68,25 @@ const TutorDashboard = ({ user, onLogout }) => {
 
           {/* Stats Cards */}
           <Row className="g-4 mb-4">
-              <Row className="g-4 mb-4">
-                {stats.map((stat, index) => {
-                  const Icon = stat.icon;
-                  return (
-                    <Col key={index} md={6} lg={3}>
-                      <Card className="stat-card border-0 shadow-sm h-100">
-                        <Card.Body>
-                          <div className="d-flex justify-content-between align-items-start mb-3">
-                            <div className={`stat-icon bg-${stat.color} bg-opacity-10 text-${stat.color}`}>
-                              <Icon size={24} />
-                            </div>
-                          </div>
-                          <h3 className="fw-bold mb-1">{stat.value}</h3>
-                          <p className="text-muted mb-0">{stat.title}</p>
-                        </Card.Body>
-                      </Card>
-                    </Col>
-                  );
-                })}
-              </Row>
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <Col key={index} md={6} lg={3}>
+                  <Card className="stat-card border-0 shadow-sm h-100">
+                    <Card.Body>
+                      <div className="d-flex justify-content-between align-items-start mb-3">
+                        <div className={`stat-icon bg-${stat.color} bg-opacity-10 text-${stat.color}`}>
+                          <Icon size={24} />
+                        </div>
+                      </div>
+                      <h3 className="fw-bold mb-1">{stat.value}</h3>
+                      <p className="text-muted mb-0">{stat.title}</p>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
 
           {/* Welcome Card */}
           <Card className="border-0 shadow-sm">

@@ -17,6 +17,7 @@ import ProfilePage from './pages/student/ProfilePage';
 import TutorDashboard from './pages/tutor/TutorDashboard';
 import TutorModulesPage from './pages/tutor/TutorModulesPage';
 import ModuleManagementPage from './pages/tutor/ModuleManagementPage';
+import TutorModuleDetailPage from './pages/tutor/TutorModuleDetailPage';
 import SuperAdminDashboard from './pages/superadmin/SuperAdminDashboard';
 
 // Components
@@ -134,6 +135,14 @@ function App() {
           element={
             <ProtectedRoute user={user} requiredRole="TUTOR">
               <ModuleManagementPage user={user} onLogout={handleLogout} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tutor/module/:id"
+          element={
+            <ProtectedRoute user={user} requiredRole="TUTOR">
+              <TutorModuleDetailPage user={user} onLogout={handleLogout} />
             </ProtectedRoute>
           }
         />

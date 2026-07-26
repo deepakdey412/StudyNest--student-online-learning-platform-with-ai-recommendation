@@ -1,0 +1,160 @@
+/* StudyNest Modern Theme - Inspired by Eduverse */
+
+:root {
+  /* Primary Colors - Purple Gradient */
+  --primary-600: #6B4CE6;
+  --primary-500: #7C5EF0;
+  --primary-400: #8B6FF6;
+  --primary-300: #A68BFA;
+  --primary-200: #C4B5FD;
+  --primary-100: #E9D5FF;
+  --primary-50: #F5F3FF;
+
+  /* Secondary Colors */
+  --secondary-600: #06B6D4;
+  --secondary-500: #0EA5E9;
+  --secondary-400: #38BDF8;
+  
+  /* Accent Colors */
+  --accent-pink: #EC4899;
+  --accent-orange: #F59E0B;
+  --accent-green: #10B981;
+  
+  /* Neutral Colors */
+  --gray-900: #111827;
+  --gray-800: #1F2937;
+  --gray-700: #374151;
+  --gray-600: #4B5563;
+  --gray-500: #6B7280;
+  --gray-400: #9CA3AF;
+  --gray-300: #D1D5DB;
+  --gray-200: #E5E7EB;
+  --gray-100: #F3F4F6;
+  --gray-50: #F9FAFB;
+  
+  /* Background */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --bg-purple-light: #FAF5FF;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-purple: 0 10px 40px -10px rgba(107, 76, 230, 0.25);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  
+  /* Gradients */
+  --gradient-purple: linear-gradient(135deg, #6B4CE6 0%, #8B6FF6 100%);
+  --gradient-purple-light: linear-gradient(135deg, #E9D5FF 0%, #F5F3FF 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(107, 76, 230, 0.9) 0%, rgba(139, 111, 246, 0.8) 100%);
+}
+
+/* Global Styles */
+body {
+  font-family: 'Inter', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--gray-900);
+  background-color: var(--bg-secondary);
+}
+
+/* Card Styles */
+.card-modern {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.card-modern:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-200);
+}
+
+.card-purple {
+  background: var(--gradient-purple);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-purple);
+}
+
+/* Button Styles */
+.btn-primary-modern {
+  background: var(--gradient-purple);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 12px 32px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(107, 76, 230, 0.25);
+}
+
+.btn-primary-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 76, 230, 0.35);
+}
+
+.btn-outline-modern {
+  background: transparent;
+  border: 2px solid var(--primary-500);
+  color: var(--primary-600);
+  border-radius: var(--radius-full);
+  padding: 10px 28px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-modern:hover {
+  background: var(--primary-50);
+  border-color: var(--primary-600);
+}
+
+/* Badge Styles */
+.badge-modern {
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Input Styles */
+.input-modern {
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  background: var(--bg-primary);
+}
+
+.input-modern:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 4px var(--primary-50);
+  outline: none;
+}
+
+/* Utility Classes */
+.text-gradient {
+  background: var(--gradient-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-purple-light {
+  background: var(--bg-purple-light);
+}
+
+.shadow-purple {
+  box-shadow: var(--shadow-purple);
+}
